@@ -9,8 +9,8 @@ app = FastAPI()
 ad_platforms: Dict[str, List[str]] = {}
 
 
-@app.post("/upload/")
-async def upload_file(file: UploadFile = File(...)):
+@app.post("/upload/", summary="Загрузить данные о рекламных площадках", description="Загружает данные из файла и обновляет in-memory коллекцию.")
+async def upload_file(file: UploadFile = File(..., description="Файл с данными о рекламных площадках.")):
     """
     Загружает данные из файла и обновляет in-memory коллекцию.
     """
@@ -20,8 +20,8 @@ async def upload_file(file: UploadFile = File(...)):
     return {"message": "File uploaded successfully"}
 
 
-@app.get("/search/")
-async def search(location: str):
+@app.get("/search/", summary="Поиск рекламных площадок", description="Ищет рекламные площадки для заданной локации.")
+async def search(location: str = "Локация для поиска рекламных площадок."):
     """
     Ищет рекламные площадки для заданной локации.
 
