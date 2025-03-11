@@ -15,7 +15,7 @@
    http://localhost:8000.
 ## API Endpoints
 ### POST /upload/: Загружает данные из файла.
-* curl -X POST -F "file=@data.csv" http://localhost:8000/upload/
+* curl -X POST -F "file=@data.txt" http://localhost:8000/upload/
 
 ### GET /search/: Ищет рекламные площадки для заданной локации.
 * curl -X GET "http://localhost:8000/search/?location=/ru/svrd/revda" 

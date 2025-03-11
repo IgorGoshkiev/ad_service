@@ -23,8 +23,12 @@ async def upload_file(file: UploadFile = File(...)):
 @app.get("/search/")
 async def search(location: str):
     """
-    Возвращает список рекламных площадок для заданной локации.
+    Ищет рекламные площадки для заданной локации.
+
+    :param location: Локация, для которой нужно найти площадки.
+    :return: Список рекламных площадок для заданной локации.
     """
+
     if not ad_platforms:
         raise HTTPException(status_code=400, detail="No data loaded. Please upload a file first.")
     platforms = search_ad_platforms(ad_platforms, location)
